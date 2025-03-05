@@ -1,3 +1,5 @@
+Jangan Lupa untuk setting Environment dan install composer
+
 # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?
