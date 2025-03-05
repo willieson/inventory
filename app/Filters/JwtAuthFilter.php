@@ -34,12 +34,12 @@ class JwtAuthFilter implements FilterInterface
         }
 
         try {
-            $key = "your_secret_key"; // Sama dengan kunci di AuthController
+            $key = env('jwt.secret_key'); //JWT key
             $decoded = JWT::decode($token, new Key($key, 'HS256'));
 
             // Cek role sesuai argumen filter
             if ($arguments && !in_array($decoded->role, $arguments)) {
-                return redirect()->to('/items')->with('error', 'Akses ditolak');
+                return redirect()->to('/')->with('error', 'Akses ditolak');
             }
         } catch (\Exception $e) {
             session()->remove('token');

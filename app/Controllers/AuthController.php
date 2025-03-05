@@ -38,7 +38,7 @@ class AuthController extends BaseController
             return redirect()->back()->with('error', 'Password salah');
         }
 
-        $key = "your_secret_key"; // Ganti dengan kunci rahasia
+        $key = env('jwt.secret_key'); // JWT key
         $payload = [
             'iss' => 'inventory-app',
             'sub' => $employee['id'],
